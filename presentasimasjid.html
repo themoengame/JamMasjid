@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Display Masjid</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a2e38;
+            scroll-behavior: smooth;
+        }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .slide-card {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 50px 60px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        }
+        .title-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-text {
+            color: #eab308;
+        }
+        .bg-gold {
+            background: #eab308;
+        }
+        .border-gold {
+            border-color: #eab308;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(234, 179, 8, 0.3);
+        }
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nav-dot.active {
+            background: #eab308;
+            width: 30px;
+            border-radius: 6px;
+        }
+        .nav-dot:hover {
+            background: rgba(255,255,255,0.5);
+        }
+        .pricing-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.1);
+        }
+        .pricing-card.popular {
+            border-color: #eab308;
+            background: rgba(234, 179, 8, 0.1);
+        }
+        .btn-primary {
+            background: #eab308;
+            color: #0a2e38;
+            padding: 14px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(234, 179, 8, 0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn-outline:hover {
+            border-color: #eab308;
+            color: #eab308;
+        }
+        .mockup-display {
+            background: rgba(0,0,0,0.4);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        @media (max-width: 768px) {
+            .slide-card { padding: 30px 20px; }
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1: JUDUL ==================== -->
+<section class="slide" id="slide1">
+    <div class="slide-card text-center">
+        <div class="mb-6">
+            <i class="fas fa-mosque text-6xl gold-text"></i>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-white title-serif mb-4">
+            Display Masjid
+        </h1>
+        <p class="text-xl md:text-2xl text-white/80 font-light mb-2">
+            Sistem Informasi Digital untuk Masjid & Musholla Modern
+        </p>
+        <div class="w-24 h-1 bg-gold mx-auto my-6"></div>
+        <p class="text-lg text-white/60 italic">
+            "Rahmatan Lil Alamin, Informasi Sholat & Kegiatan dalam Genggaman"
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4 justify-center">
+            <button onclick="goToSlide(2)" class="btn-primary">
+                <i class="fas fa-play mr-2"></i> Mulai Presentasi
+            </button>
+            <button onclick="goToSlide(8)" class="btn-outline">
+                <i class="fas fa-phone mr-2"></i> Hubungi Kami
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 2: MASALAH & SOLUSI ==================== -->
+<section class="slide" id="slide2">
+    <div class="slide-card">
+        <div class="grid md:grid-cols-2 gap-10">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-6 title-serif">
+                    ⚠️ Masalah yang Sering Terjadi
+                </h2>
+                <ul class="space-y-4 text-white/80">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-times text-red-400 mt-1"></i>
+                        <span>Informasi jadwal sholat tidak terpusat</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-times text-red-400 mt-1"></i>
+                        <span>Pengumuman masjid hanya lewat papan tulis</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-times text-red-400 mt-1"></i>
+                        <span>Donasi/zakat/infak tidak transparan</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-times text-red-400 mt-1"></i>
+                        <span>Jadwal imam & muadzin sering berubah</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-times text-red-400 mt-1"></i>
+                        <span>Tidak ada media informasi yang menarik</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-6 title-serif gold-text">
+                    ✅ Solusi: Display Masjid
+                </h2>
+                <ul class="space-y-4 text-white/80">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-green-400 mt-1"></i>
+                        <span>Jadwal sholat real-time & countdown</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-green-400 mt-1"></i>
+                        <span>Pengumuman digital running text</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-green-400 mt-1"></i>
+                        <span>Transparansi keuangan & donasi (QRIS)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-green-400 mt-1"></i>
+                        <span>Manajemen imam & muadzin terstruktur</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-green-400 mt-1"></i>
+                        <span>Tampilan profesional di TV/LCD masjid</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <button onclick="goToSlide(3)" class="text-white/50 hover:text-white transition text-sm">
+                <i class="fas fa-arrow-down mr-1"></i> Lanjut
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 3: FITUR UNGGULAN ==================== -->
+<section class="slide" id="slide3">
+    <div class="slide-card">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center title-serif mb-10">
+            ⭐ Fitur Unggulan
+        </h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-clock text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Waktu Sholat</h3>
+                <p class="text-white/50 text-sm">5 waktu + countdown + imam & muadzin</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bullhorn text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Pengumuman Digital</h3>
+                <p class="text-white/50 text-sm">Running text & jadwal kegiatan</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hand-holding-heart text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Zakat & Infak</h3>
+                <p class="text-white/50 text-sm">QRIS, rekening, fitrah, mal, fidyah</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Pengurus DKM</h3>
+                <p class="text-white/50 text-sm">Struktur & foto pengurus</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Laporan Keuangan</h3>
+                <p class="text-white/50 text-sm">Transparansi pemasukan & pengeluaran</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-palette text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Custom Tema</h3>
+                <p class="text-white/50 text-sm">Warna, font, layout sesuai branding</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-drumstick-bite text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Qurban</h3>
+                <p class="text-white/50 text-sm">Pendaftaran & patungan 7 orang</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-images text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Galeri & Artikel</h3>
+                <p class="text-white/50 text-sm">Foto kegiatan & artikel embed</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-video text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Video Background</h3>
+                <p class="text-white/50 text-sm">Hero background support video MP4</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-paint-brush text-4xl gold-text mb-4"></i>
+                <h3 class="font-bold text-white text-lg">Multi Template</h3>
+                <p class="text-white/50 text-sm">5 pilihan tampilan display</p>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <button onclick="goToSlide(4)" class="text-white/50 hover:text-white transition text-sm">
+                <i class="fas fa-arrow-down mr-1"></i> Lanjut
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 4: TAMPILAN DISPLAY ==================== -->
+<section class="slide" id="slide4">
+    <div class="slide-card">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center title-serif mb-8">
+            🖥️ Tampilan Display Publik
+        </h2>
+        <div class="mockup-display">
+            <div class="bg-gradient-to-br from-[#0a2e38] to-[#0b4f3c] rounded-xl p-6 text-white">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-mosque text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Masjid Nurul Iman</h3>
+                            <p class="text-white/60 text-xs">Rahmatan Lil Alamin</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-mono">17:31:43</div>
+                        <div class="text-white/60 text-xs">Rabu, 20 Mei 2026</div>
+                    </div>
+                </div>
+                <div class="text-center py-4">
+                    <p class="text-white/60 text-xs uppercase tracking-wider mb-2 gold-text">
+                        <i class="fas fa-hourglass-half mr-1"></i> MENUJU SHOLAT BERIKUTNYA
+                    </p>
+                    <div class="text-4xl font-mono font-bold gold-text">02:15:30</div>
+                    <p class="text-white/80 text-sm mt-2">➡️ Isya pukul 18:28 | Imam: Ustadz Ahmad</p>
+                </div>
+                <div class="grid grid-cols-5 gap-2 mt-4">
+                    <div class="bg-white/10 rounded-xl p-2 text-center">
+                        <div class="text-xs font-bold gold-text">SUBUH</div>
+                        <div class="text-lg font-mono">04:30</div>
+                        <div class="text-[10px] text-white/50">👳 Ust. Ahmad</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2 text-center">
+                        <div class="text-xs font-bold gold-text">DZUHUR</div>
+                        <div class="text-lg font-mono">12:00</div>
+                        <div class="text-[10px] text-white/50">👳 Ust. Hasan</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2 text-center">
+                        <div class="text-xs font-bold gold-text">ASHAR</div>
+                        <div class="text-lg font-mono">15:30</div>
+                        <div class="text-[10px] text-white/50">👳 Ust. Ahmad</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2 text-center">
+                        <div class="text-xs font-bold gold-text">MAGHRIB</div>
+                        <div class="text-lg font-mono">18:00</div>
+                        <div class="text-[10px] text-white/50">👳 Ust. Hasan</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2 text-center">
+                        <div class="text-xs font-bold gold-text">ISYA</div>
+                        <div class="text-lg font-mono">19:15</div>
+                        <div class="text-[10px] text-white/50">👳 Ust. Ahmad</div>
+                    </div>
+                </div>
+                <div class="mt-4 bg-black/30 rounded-full py-2 px-4 text-center text-xs text-white/60 overflow-hidden">
+                    <span class="inline-block animate-[running_20s_linear_infinite] whitespace-nowrap">
+                        📢 Pengumuman: Pesantren Ramadhan dibuka 1 Maret | Donasi bencana dibuka
+                    </span>
+                </div>
+            </div>
+            <p class="text-white/40 text-xs text-center mt-3">
+                ✨ 5 Template: Classic, Modern, Minimal, Hero, Elegant
+            </p>
+        </div>
+        <div class="text-center mt-6">
+            <button onclick="goToSlide(5)" class="text-white/50 hover:text-white transition text-sm">
+                <i class="fas fa-arrow-down mr-1"></i> Lanjut
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 5: ADMIN PANEL ==================== -->
+<section class="slide" id="slide5">
+    <div class="slide-card">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center title-serif mb-8">
+            ⚙️ Admin Panel - Mudah Digunakan
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 border border-white/5">
+                <div class="flex gap-2 mb-4">
+                    <span class="px-3 py-1 bg-emerald-600 rounded-full text-xs text-white">Dashboard</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-white/60">Jadwal</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-white/60">Kajian</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-white/60">Qurban</span>
+                </div>
+                <ul class="space-y-3 text-white/80">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Edit jadwal sholat & petugas</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Tambah kajian & program rutin</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Kelola pengurus DKM & struktur</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Upload galeri kegiatan</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Kelola zakat, infak, qurban</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Custom tema (warna, font, layout)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-400 text-sm"></i>
+                        <span>Kelola pengumuman running text</span>
+                    </li>
+                </ul>
+                <div class="mt-4 text-white/40 text-sm flex items-center gap-2">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Akses dari HP / Laptop via WiFi</span>
+                </div>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-center items-center text-center">
+                <i class="fas fa-laptop text-6xl gold-text mb-4"></i>
+                <h3 class="text-xl font-bold text-white">Multi Perangkat</h3>
+                <p class="text-white/50 text-sm mt-2">Bisa diakses dari:</p>
+                <div class="flex gap-4 mt-3 text-3xl text-white/40">
+                    <i class="fas fa-desktop"></i>
+                    <i class="fas fa-laptop"></i>
+                    <i class="fas fa-tablet-alt"></i>
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <p class="text-white/40 text-sm mt-4">Cukup browser, tanpa aplikasi tambahan</p>
+            </div>
+        </div>
+        <div class="text-center mt-6">
+            <button onclick="goToSlide(6)" class="text-white/50 hover:text-white transition text-sm">
+                <i class="fas fa-arrow-down mr-1"></i> Lanjut
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 6: KEUNGGULAN ==================== -->
+<section class="slide" id="slide6">
+    <div class="slide-card">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center title-serif mb-8">
+            💻 Keunggulan Display Masjid
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                <i class="fas fa-wifi-slash text-3xl gold-text mb-3"></i>
+                <h4 class="font-bold text-white text-sm">Bisa Offline</h4>
+                <p class="text-white/40 text-xs">Tidak perlu internet terus-menerus</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                <i class="fas fa-server text-3xl gold-text mb-3"></i>
+                <h4 class="font-bold text-white text-sm">Standalone</h4>
+                <p class="text-white/40 text-xs">Tanpa router/modem tambahan</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                <i class="fas fa-mobile-alt text-3xl gold-text mb-3"></i>
+                <h4 class="font-bold text-white text-sm">Responsive</h4>
+                <p class="text-white/40 text-xs">Tampil di semua perangkat</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                <i class="fas fa-palette text-3xl gold-text mb-3"></i>
+                <h4 class="font-bold text-white text-sm">Multi Template</h4>
+                <p class="text-white/40 text-xs">5 pilihan tampilan display</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                <i class="fas fa-sync-alt text-3xl gold-text mb-3"></i>
+                <h4 class="font-bold text-white text-sm">Sync Jadwal</h4>
+                <p class="text-white/40 text-xs">Otomatis via kota terdekat</p>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5 text-center border border-white/5">
+                <i class="fas fa-shield-alt text-3xl gold-text mb-3"></i>
+                <h4 class="font-bold text-white text-sm">Multi User</h4>
+                <p class="text-white/40 text-xs">Admin & pengelola terpisah</p>
+            </div>
+        </div>
+        <div class="text-center mt-6">
+            <button onclick="goToSlide(7)" class="text-white/50 hover:text-white transition text-sm">
+                <i class="fas fa-arrow-down mr-1"></i> Lanjut
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 7: HARGA & PAKET ==================== -->
+<section class="slide" id="slide7">
+    <div class="slide-card">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center title-serif mb-8">
+            💰 Harga & Paket Langganan
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="pricing-card">
+                <i class="fas fa-star text-3xl text-white/30 mb-3"></i>
+                <h3 class="text-xl font-bold text-white">Basic</h3>
+                <div class="text-3xl font-bold gold-text my-4">Rp 50.000</div>
+                <p class="text-white/40 text-sm">/bulan</p>
+                <ul class="mt-6 space-y-2 text-white/60 text-sm text-left">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> All Fitur</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> 1 Masjid</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> 5 Template</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-times text-red-400 text-xs"></i> Priority Support</li>
+                </ul>
+                <button class="btn-primary w-full mt-6 text-sm">Pilih Basic</button>
+            </div>
+            <div class="pricing-card popular">
+                <div class="text-xs bg-gold text-black font-bold px-3 py-1 rounded-full inline-block mb-3">POPULER</div>
+                <i class="fas fa-crown text-3xl gold-text mb-3"></i>
+                <h3 class="text-xl font-bold text-white">Premium</h3>
+                <div class="text-3xl font-bold gold-text my-4">Rp 120.000</div>
+                <p class="text-white/40 text-sm">/bulan</p>
+                <ul class="mt-6 space-y-2 text-white/60 text-sm text-left">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> All Fitur</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> 1 Masjid</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> 5 Template</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> Priority Support</li>
+                </ul>
+                <button class="btn-primary w-full mt-6 text-sm">Pilih Premium</button>
+            </div>
+            <div class="pricing-card">
+                <i class="fas fa-building text-3xl text-white/30 mb-3"></i>
+                <h3 class="text-xl font-bold text-white">Multi-Masjid</h3>
+                <div class="text-3xl font-bold gold-text my-4">Rp 500.000</div>
+                <p class="text-white/40 text-sm">/bulan (10 masjid)</p>
+                <ul class="mt-6 space-y-2 text-white/60 text-sm text-left">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> All Fitur</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> 10 Masjid</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> 5 Template</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400 text-xs"></i> Priority Support</li>
+                </ul>
+                <button class="btn-primary w-full mt-6 text-sm">Hubungi Kami</button>
+            </div>
+        </div>
+        <div class="text-center mt-6">
+            <p class="text-white/40 text-sm">
+                🎁 <span class="gold-text">PROMO TAHUNAN:</span> Rp 400.000/tahun (hemat 2 bulan)
+            </p>
+            <p class="text-white/30 text-sm mt-1">
+                ✅ GRATIS INSTALASI UNTUK 5 MASJID PERTAMA!
+            </p>
+        </div>
+        <div class="text-center mt-4">
+            <button onclick="goToSlide(8)" class="text-white/50 hover:text-white transition text-sm">
+                <i class="fas fa-arrow-down mr-1"></i> Lanjut
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SLIDE 8: KONTAK & PENUTUP ==================== -->
+<section class="slide" id="slide8">
+    <div class="slide-card text-center">
+        <i class="fas fa-mosque text-6xl gold-text mb-6"></i>
+        <h2 class="text-4xl md:text-5xl font-bold text-white title-serif mb-4">
+            Display Masjid
+        </h2>
+        <p class="text-xl text-white/60 font-light mb-6">
+            Solusi Digital untuk Masjid Modern
+        </p>
+        <div class="w-24 h-1 bg-gold mx-auto mb-8"></div>
+        
+        <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                <div class="flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+                    <div>
+                        <p class="text-white/40 text-xs">WhatsApp</p>
+                        <p class="text-white font-semibold">0888-5508-077</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-globe text-2xl gold-text"></i>
+                    <div>
+                        <p class="text-white/40 text-xs">Website</p>
+                        <p class="text-white font-semibold">themoen.my.id</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8">
+            <h3 class="text-2xl font-bold text-white title-serif mb-4">
+                "Wujudkan Masjid Digital Sekarang!"
+            </h3>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="window.location.href='#slide1'" class="btn-primary">
+                    <i class="fas fa-redo mr-2"></i> Lihat Lagi Presentasi
+                </button>
+                <button onclick="window.open('https://wa.me/628885508077','_blank')" class="btn-outline">
+                    <i class="fab fa-whatsapp mr-2"></i> Hubungi Kami
+                </button>
+            </div>
+            <p class="text-white/30 text-sm mt-6">
+                © 2026 Display Masjid
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== NAVIGASI BAWAH ==================== -->
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-50 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
+    <button onclick="goToSlide(1)" class="nav-dot active" data-slide="1"></button>
+    <button onclick="goToSlide(2)" class="nav-dot" data-slide="2"></button>
+    <button onclick="goToSlide(3)" class="nav-dot" data-slide="3"></button>
+    <button onclick="goToSlide(4)" class="nav-dot" data-slide="4"></button>
+    <button onclick="goToSlide(5)" class="nav-dot" data-slide="5"></button>
+    <button onclick="goToSlide(6)" class="nav-dot" data-slide="6"></button>
+    <button onclick="goToSlide(7)" class="nav-dot" data-slide="7"></button>
+    <button onclick="goToSlide(8)" class="nav-dot" data-slide="8"></button>
+</div>
+
+<!-- ==================== TOMBOL NAVIGASI KIRI/KANAN ==================== -->
+<div class="fixed top-1/2 left-4 transform -translate-y-1/2 z-50">
+    <button onclick="prevSlide()" class="text-white/30 hover:text-white/70 transition text-2xl">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+</div>
+<div class="fixed top-1/2 right-4 transform -translate-y-1/2 z-50">
+    <button onclick="nextSlide()" class="text-white/30 hover:text-white/70 transition text-2xl">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = 8;
+
+    function goToSlide(n) {
+        if (n < 1) n = 1;
+        if (n > totalSlides) n = totalSlides;
+        currentSlide = n;
+        document.querySelectorAll('.slide').forEach((el, i) => {
+            el.style.display = (i + 1 === n) ? 'flex' : 'none';
+        });
+        document.querySelectorAll('.nav-dot').forEach((el, i) => {
+            el.classList.toggle('active', (i + 1 === n));
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentSlide - 1);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+    });
+
+    // Touch navigation
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    document.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+        }
+    });
+
+    // Auto start
+    goToSlide(1);
+</script>
+
+</body>
+</html>
